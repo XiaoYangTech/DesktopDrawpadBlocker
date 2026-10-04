@@ -161,7 +161,7 @@ int WINAPI wWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPWSTR
 				ws.interceptType = InterceptTypeEnum::Hide;
 				{
 					ws.windowTitle.enable = true;
-					ws.windowTitle.windowTitle = L"";
+					ws.windowTitle.windowTitle = L"^$"; // 仅空标题：排除白板主窗口
 				}
 				{
 					ws.className.enable = true;
@@ -175,12 +175,7 @@ int WINAPI wWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPWSTR
 					ws.processName.enable = true;
 					ws.processName.processName = L"EasiNote.exe";
 				}
-				{
-					ws.size.enable = true;
-					ws.size.MatchType = SizeMatchTypeEnum::Scale;
-					ws.size.width = 550;
-					ws.size.height = 200;
-				}
+				// 不再限制尺寸：收起/展开态都要拦截（原 550x200 比例匹配导致收起态漏拦）
 				windowUnionList[InterceptObjectEnum::SeewoWhiteboard5Floating].windows.emplace_back(ws);
 			}
 		}
@@ -219,7 +214,7 @@ int WINAPI wWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPWSTR
 				ws.interceptType = InterceptTypeEnum::Hide;
 				{
 					ws.windowTitle.enable = true;
-					ws.windowTitle.windowTitle = L"";
+					ws.windowTitle.windowTitle = L"^$"; // 仅空标题
 				}
 				{
 					ws.className.enable = true;
@@ -234,12 +229,7 @@ int WINAPI wWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPWSTR
 					ws.processName.enable = true;
 					ws.processName.processName = L"EasiNote5C.exe";
 				}
-				{
-					ws.size.enable = true;
-					ws.size.MatchType = SizeMatchTypeEnum::Scale;
-					ws.size.width = 550;
-					ws.size.height = 200;
-				}
+				// 不再限制尺寸：收起/展开态都要拦截
 				windowUnionList[InterceptObjectEnum::SeewoWhiteboard5CFloating].windows.emplace_back(ws);
 			}
 		}
