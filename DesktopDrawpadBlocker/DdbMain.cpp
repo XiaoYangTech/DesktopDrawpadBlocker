@@ -175,12 +175,7 @@ int WINAPI wWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPWSTR
 					ws.processName.enable = true;
 					ws.processName.processName = L"EasiNote.exe";
 				}
-				{
-					ws.size.enable = true;
-					ws.size.MatchType = SizeMatchTypeEnum::Scale;
-					ws.size.width = 550;
-					ws.size.height = 200;
-				}
+				// 移除 550x200 比例匹配：收紧态悬浮窗比例不同会导致漏拦，改为不限尺寸
 				windowUnionList[InterceptObjectEnum::SeewoWhiteboard5Floating].windows.emplace_back(ws);
 			}
 		}
@@ -234,12 +229,7 @@ int WINAPI wWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPWSTR
 					ws.processName.enable = true;
 					ws.processName.processName = L"EasiNote5C.exe";
 				}
-				{
-					ws.size.enable = true;
-					ws.size.MatchType = SizeMatchTypeEnum::Scale;
-					ws.size.width = 550;
-					ws.size.height = 200;
-				}
+				// 移除 550x200 比例匹配：收紧态悬浮窗比例不同会导致漏拦，改为不限尺寸
 				windowUnionList[InterceptObjectEnum::SeewoWhiteboard5CFloating].windows.emplace_back(ws);
 			}
 		}
